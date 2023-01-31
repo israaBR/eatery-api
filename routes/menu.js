@@ -23,7 +23,7 @@ router.post("/", async (request, response) => {
   return response.json(await createItem(request.body));
 });
 router.put("/:id", async (request, response) => {
-  return response.json(await editItem(request.params.id));
+  return response.json(await editItem(request.params.id, request.body));
 });
 router.delete("/:id", async (request, response) => {
   return response.json(await deleteItem(request.params.id));
