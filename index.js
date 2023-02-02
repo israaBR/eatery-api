@@ -1,6 +1,7 @@
 //TODO import libraries
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //TODO import routes
 const MenuRouter = require("./routes/menu");
@@ -21,6 +22,13 @@ mongoose.connect(MONGO_URL, (error) => {
   if (error) console.log(error);
   else return console.log(`Database is connected at ${MONGO_URL}`);
 });
+
+//TODO enable cors
+var corsOptions = {
+  origin: "http://localhost:4200",
+  optionsSuccessStatus: 200,
+};
+APP.use(cors(corsOptions));
 
 //TODO use routers
 APP.use(express.json());
