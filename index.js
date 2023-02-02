@@ -10,7 +10,7 @@ const CartsRouter = require("./routes/carts");
 //TODO declare app & DB
 const APP = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/eatery";
+const MONGO_URL = "mongodb://127.0.0.1:27017/eatery";
 
 //TODO start app & DB
 APP.listen(PORT, (error) => {
@@ -19,7 +19,7 @@ APP.listen(PORT, (error) => {
 });
 mongoose.connect(MONGO_URL, (error) => {
   if (error) console.log(error);
-  else return console.log("Database is connected");
+  else return console.log(`Database is connected at ${MONGO_URL}`);
 });
 
 //TODO use routers

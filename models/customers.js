@@ -6,7 +6,7 @@ const customersSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   phoneNumber: { type: String, required: true },
-  cart: { type: mongoose.Types.ObjectId, required: true },
+  cart: { type: mongoose.Types.ObjectId, ref: "carts", required: true },
 });
 
 const customersModel = mongoose.model("customers", customersSchema);

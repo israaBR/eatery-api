@@ -1,45 +1,45 @@
-const MenuModel = require("../models/menu");
+const menuModel = require("../models/menu");
 
 async function getAllItems() {
   try {
-    return await MenuModel.find({});
+    return await menuModel.find({});
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 async function getItemById(itemId) {
   try {
-    return await MenuModel.findById(itemId);
+    return await menuModel.findById(itemId);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 async function getItemsByCategory(category) {
   try {
-    return await MenuModel.find({ category });
+    return await menuModel.find({ category });
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 async function createItem(item) {
   try {
-    return await MenuModel.create(item);
+    return await menuModel.create(item);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 async function editItem(itemId, newItem) {
   try {
-    return await MenuModel.findByIdAndUpdate(itemId, newItem, { new: true });
+    return await menuModel.findByIdAndUpdate(itemId, newItem, { new: true });
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 async function deleteItem(itemId) {
   try {
-    return await MenuModel.findByIdAndDelete(itemId);
+    return await menuModel.findByIdAndDelete(itemId);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 
