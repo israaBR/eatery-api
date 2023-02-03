@@ -6,6 +6,7 @@ const cors = require("cors");
 //TODO import routes
 const MenuRouter = require("./routes/menu");
 const CustomersRouter = require("./routes/customers");
+const AdminsRouter = require("./routes/admins");
 const CartsRouter = require("./routes/carts");
 
 //TODO declare app & DB
@@ -34,4 +35,5 @@ APP.use(cors(corsOptions));
 APP.use(express.json());
 APP.use("/menu", MenuRouter);
 APP.use("/customer", CustomersRouter);
+APP.use("/admin", AdminsRouter);
 APP.use("/cart", CartsRouter);
