@@ -21,6 +21,16 @@ async function createCustomer(customer, cart) {
     return error;
   }
 }
+async function loginCustomer(customer) {
+  try {
+    return await CustomersModel.findOne({
+      email: customer.email,
+      password: customer.password,
+    });
+  } catch (error) {
+    return error;
+  }
+}
 async function editCustomer(customerId, newCustomer) {
   try {
     return await CustomersModel.findByIdAndUpdate(customerId, newCustomer, {
@@ -42,6 +52,7 @@ module.exports = {
   getAllCustomers,
   getCustomerById,
   createCustomer,
+  loginCustomer,
   editCustomer,
   deleteCustomer,
 };
